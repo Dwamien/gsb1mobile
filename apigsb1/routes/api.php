@@ -14,8 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiresource('Composition', 'CompositionController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::apiresource('Composition', 'CompositionController');
+    Route::get('logout', 'Auth\LoginController@logout');
+});
+
+Route::post('login', 'Auth\LoginController@login');
+Route::post('register', 'Auth\RegisterController@register');
