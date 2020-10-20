@@ -29,7 +29,7 @@
             "scripts": [
               "src/lib/jquery/jquery-2.1.3.min.js",
               "src/lib/bootstrap/js/bootstrap.min.js",
-              "src/lib/js/employees.js"
+              "src/lib/js/gsb1.js"
             ]
           },
           "configurations": {
