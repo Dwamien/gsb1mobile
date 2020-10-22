@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Composant;
+use App\Models\Famille;
 use App\Models\Medicament;
 
-class CompositionController extends Controller
+class MedicamentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class CompositionController extends Controller
      */
     public function index()
     {
-        //
+        $medicaments = Medicament::all();
+        return response()->json($medicaments, 200);
     }
 
     /**
@@ -37,7 +39,8 @@ class CompositionController extends Controller
      */
     public function show($id)
     {
-        //
+        $medicament = Medicament::find($id);
+        return response()->json($medicament, 200);
     }
 
     /**

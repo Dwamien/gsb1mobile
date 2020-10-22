@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::apiresource('Composition', 'CompositionController');
+    Route::apiresource('Medicament', 'MedicamentController');
     Route::get('logout', 'Auth\LoginController@logout');
 });
 

@@ -8,7 +8,7 @@ import { SharedService } from './shared.service';
   providedIn: 'root'
 })
 export class LoginService {
-  private URLAPI: string = 'http://127.0.0.1:8000/api/';
+  private URLAPI: string = this.sharedService.URLAPI;
   public headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(

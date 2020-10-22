@@ -9,9 +9,13 @@ import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
+import { GestCompComponent } from './gest-comp/gest-comp.component';
 
 import { SharedService } from './services/shared.service';
 import { LoginService } from './services/login.service';
+import { SearchByNameComponent } from './search-by-name/search-by-name.component';
+import { CompositionComponent } from './composition/composition.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,10 @@ import { LoginService } from './services/login.service';
     MenuComponent,
     LoginComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    GestCompComponent,
+    SearchByNameComponent,
+    CompositionComponent
   ],
   imports: [
     BrowserModule,
