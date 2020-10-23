@@ -9,13 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'gest-comp',
-    children: [
-      { path:'', component: GestCompComponent },
-      { path:'byName', component: GestCompComponent },
-      { path:'byName/:med_id', component: GestCompComponent }
-    ]
-  }
+  { path: 'gest-comp', component: GestCompComponent }
 ];
 
 @NgModule({

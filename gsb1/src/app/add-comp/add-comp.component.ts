@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MedicService } from '../services/medic.service';
-import { SharedService } from '../services/shared.service';
 import { Medic } from '../models/medic';
 
 @Component({
-  selector: 'app-gest-comp',
-  templateUrl: './gest-comp.component.html'
+  selector: 'app-add-comp',
+  templateUrl: './add-comp.component.html'
 })
-export class GestCompComponent implements OnInit {
+export class AddCompComponent implements OnInit {
   public id_medicament: number;
   public medic: Medic;
   public error: string;
@@ -32,4 +31,5 @@ export class GestCompComponent implements OnInit {
       (error) => { this.error = error.error.message }
     )
   }
+
 }

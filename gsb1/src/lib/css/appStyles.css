@@ -10,7 +10,7 @@ and open the template in the editor.
 
 .body{
     padding-top: 80px;
-    font-size: 18px;
+    font-size: 15px;
 }
 nav li{
   font-size: 20px;
@@ -20,4 +20,12 @@ nav li{
 }
 .titre{
     padding-bottom: 20px;
+}
+
+tr:not(:first-child) td.cache {
+  color: rgba(0, 0, 0, 0);
+}
+
+.glyphicon {
+  color: #428bca;
 }

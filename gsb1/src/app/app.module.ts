@@ -15,6 +15,7 @@ import { SharedService } from './services/shared.service';
 import { LoginService } from './services/login.service';
 import { SearchByNameComponent } from './search-by-name/search-by-name.component';
 import { CompositionComponent } from './composition/composition.component';
+import { AddCompComponent } from './add-comp/add-comp.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CompositionComponent } from './composition/composition.component';
     ErrorComponent,
     GestCompComponent,
     SearchByNameComponent,
-    CompositionComponent
+    CompositionComponent,
+    AddCompComponent
   ],
   imports: [
     BrowserModule,

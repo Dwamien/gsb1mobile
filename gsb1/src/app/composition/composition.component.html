@@ -1,24 +1,31 @@
-<div class="table-responsive">
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>Médicament</th>
-        <th class="hidden-xs">Dépot légal</th>
-        <th>Composant</th>
-        <th>Qté</th>
-        <th style="width: 50px; text-align: center;"><span class="glyphicon glyphicon-pencil" style="color:blue"></span></th>
-        <th style="width: 50px; text-align: center;"><span class="glyphicon glyphicon-trash" style="color:red"></span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let composant of medic.composants">
-        <td class="cache">{{medic.nom_commercial}}</td>
-        <td class="cache hidden-xs">{{medic.depot_legal}}</td>
-        <td class="cache">{{composant.lib_composant}}</td>
-        <td>{{composant.pivot['qte_composant']}}</td>
-        <td style="text-align: center;"><span class="glyphicon glyphicon-pencil" style="cursor: pointer; color:blue;" title="Modifier"></span></td>
-        <td style="text-align: center;"><span class="glyphicon glyphicon-trash" style="cursor: pointer; color:red;" title="Supprimer"></span></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Médicament</th>
+          <th class="hidden-xs">Dépot légal</th>
+          <th>Composant</th>
+          <th>Qté</th>
+          <th style="width: 50px; text-align: center;"><span class="glyphicon glyphicon-pencil"></span></th>
+          <th style="width: 50px; text-align: center;"><span class="glyphicon glyphicon-trash"></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let composant of medic.composants">
+          <td class="cache">{{medic.nom_commercial}}</td>
+          <td class="cache hidden-xs">{{medic.depot_legal}}</td>
+          <td class="cache">{{composant.lib_composant}}</td>
+          <td>{{composant.pivot['qte_composant']}}</td>
+          <td style="text-align: center;"><a class="glyphicon glyphicon-pencil" style="cursor: pointer" title="Modifier" href=""></a></td>
+          <td style="text-align: center;"><a class="glyphicon glyphicon-trash" style="cursor: pointer" title="Supprimer" href=""></a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
+<div class="row" style="padding-right:15px">
+  <a href=""  class="btn  btn-success pull-right">
+  Ajouter un composant
+  </a>
+</div>
