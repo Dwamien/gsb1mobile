@@ -20,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::apiresource('Composition', 'CompositionController');
+    Route::apiresource('Composition', 'CompositionController')->except('destroy');
+        Route::delete('Composition/{id}/{id2}', 'CompositionController@destroy' )->name('Composition.destroy');
+    Route::get('Composition/others/{id}', 'CompositionController@getMissingComp');
     Route::apiresource('Medicament', 'MedicamentController');
     Route::get('logout', 'Auth\LoginController@logout');
 });

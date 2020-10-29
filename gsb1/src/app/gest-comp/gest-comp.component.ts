@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { MedicService } from '../services/medic.service';
-import { SharedService } from '../services/shared.service';
 import { Medic } from '../models/medic';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gest-comp',
@@ -14,11 +13,15 @@ export class GestCompComponent implements OnInit {
   public error: string;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private medicService: MedicService
+    private medicService: MedicService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    let med_id = +this.activatedRoute.snapshot.paramMap.get('id');
+    if(med_id > 0){
+      this.medicSelected(med_id);
+    }
   }
 
   medicSelected(id: number): void {
@@ -31,5 +34,9 @@ export class GestCompComponent implements OnInit {
       (medic) => { this.medic = medic },
       (error) => { this.error = error.error.message }
     )
+  }
+
+  reload(med_id): void{
+    this.medicSelected(med_id);
   }
 }

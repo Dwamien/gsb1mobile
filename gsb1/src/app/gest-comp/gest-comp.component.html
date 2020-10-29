@@ -5,7 +5,7 @@
         <app-search-by-name [id_medicament]="id_medicament" (onChoose)=medicSelected($event)></app-search-by-name>
       </div>
       <div *ngIf="id_medicament > 0" class="form-group">
-        <app-composition [medic]="medic"></app-composition>
+        <app-composition [medic]="medic" (reload)="reload($event)"></app-composition>
       </div>
       <!-- error comp à mettre en place -->
     </form>

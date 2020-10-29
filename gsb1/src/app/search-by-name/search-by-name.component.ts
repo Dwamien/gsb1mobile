@@ -9,6 +9,7 @@ import { Medic } from '../models/medic';
 export class SearchByNameComponent implements OnInit {
   @Input() public id_medicament: number;
   @Output() private onChoose = new EventEmitter();
+  @Output() private reload = new EventEmitter();
 
   public medics: Medic[];
   public error: string;

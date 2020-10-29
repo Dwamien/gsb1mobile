@@ -15,17 +15,17 @@
         <tr *ngFor="let composant of medic.composants">
           <td class="cache">{{medic.nom_commercial}}</td>
           <td class="cache hidden-xs">{{medic.depot_legal}}</td>
-          <td class="cache">{{composant.lib_composant}}</td>
+          <td>{{composant.lib_composant}}</td>
           <td>{{composant.pivot['qte_composant']}}</td>
           <td style="text-align: center;"><a class="glyphicon glyphicon-pencil" style="cursor: pointer" title="Modifier" href=""></a></td>
-          <td style="text-align: center;"><a class="glyphicon glyphicon-trash" style="cursor: pointer" title="Supprimer" href=""></a></td>
+          <td style="text-align: center;"><a class="glyphicon glyphicon-trash" style="cursor: pointer" title="Supprimer" (click)="delete(medic.id_medicament, composant.id_composant)"></a></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
 <div class="row" style="padding-right:15px">
-  <a href=""  class="btn  btn-success pull-right">
-  Ajouter un composant
-  </a>
+    <a routerLink="add-comp/{{medic.id_medicament}}"  class="btn  btn-success pull-right">
+      Ajouter un composant
+      </a>
 </div>

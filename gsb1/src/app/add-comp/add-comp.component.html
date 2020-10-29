@@ -1,13 +1,53 @@
 <div class="container">
-  <h1 class="col-md-offset-2">Gestion des compositions</h1>
-  <form class="form-horizontal" role="form" name="empByJobForm">
-    <div class="form-group">
-      <app-search-by-name [id_medicament]="id_medicament" (onChoose)=medicSelected($event)></app-search-by-name>
-    </div>
-    <div *ngIf="id_medicament > 0" class="form-group">
-      <app-composition [medic]="medic"></app-composition>
-    </div>
+  <h1 class="col-md-offset-2">Ajout d'un composant</h1>
+  <div ng-controller="MyFormController">
+    <form class="form-horizontal" role="form" name="addCompForm" (ngSubmit)="validateAdd(medic.id_medicament)" #f="ngForm" novalidate>
+      <div class="panel panel-default">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Médicament</th>
+                <th class="hidden-xs">Dépot légal</th>
+                <th>Composant</th>
+                <th>Qté</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let composant of medic.composants">
+                <td class="cache">{{medic.nom_commercial}}</td>
+                <td class="cache hidden-xs">{{medic.depot_legal}}</td>
+                <td>{{composant.lib_composant}}</td>
+                <td>{{composant.pivot['qte_composant']}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="hidden-xs"></td>
+                <td>
+                  <select class="form-control" id="selectCompo" [(ngModel)]="composition.id_composant" [ngModelOptions]="{standalone: true}" onchange="activBtns()">
+                    <option value="0" placeholder="Sélectionner un composant" selected> Sélectionner un composant</option>
+                    <option *ngFor="let notComposant of notComposants" [value]="notComposant.id_composant" id="opt">{{notComposant.lib_composant}}</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" name="qte" placeholder="Quantité" style="width:130px; height:27.27px" [(ngModel)]="composition.qte" required>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row" style="padding-right:15px">
+          <button type="submit"  class="btn  btn-default pull-right" style="margin-left:20px" id="sub1" disabled>
+          Valider
+          </button>
+          <a type="button" (click)="cancel(medic.id_medicament)" class="btn  btn-danger pull-right" style="height:33.07px">
+          Retour
+          </a>
+      </div>
     <!-- error comp à mettre en place -->
-  </form>
+    </form>
+  </div>
+
 </div>
 

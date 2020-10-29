@@ -25,4 +25,14 @@ class Medicament extends Model
        $data['composants'] = $this->composants;
        return $data;
     }
+
+    public function listComp(){
+        $allreadyComp = [];
+
+        foreach($this->composants as $composant){
+            $allreadyComp[] = $composant->id_composant;
+        }
+
+        return $allreadyComp;
+    }
 }

@@ -26,7 +26,13 @@ class CompositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $medicament = Medicament::find($request->input("id_medicament"));
+        $composant = Composant::find($request->input("id_composant"));
+        $qte = $request->input("qte");
+
+        $medicament->composants()->save($composant, ['qte_composant'=>$qte]);
+
+        return response()->json($medicament, 200);
     }
 
     /**
@@ -58,8 +64,27 @@ class CompositionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $id2)
     {
-        //
+        $medicament = Medicament::find($id);
+        $medicament->composants()->detach($id2);
+        return response()->json($medicament, 200);
+    }
+
+    /**
+     * Lisplay listing of components NOT contains in the medication
+     */
+    public function getMissingComp($id){
+        $medicament = Medicament::find($id);
+        $composants = Composant::all();
+        $allreadycomp = $medicament->listComp();
+        $compos = [];
+        foreach($composants as $composant){
+            if(!in_array($composant->id_composant, $allreadycomp)){
+                $compos[] = $composant;
+            }
+        }
+
+        return response()->json($compos, 200);
     }
 }

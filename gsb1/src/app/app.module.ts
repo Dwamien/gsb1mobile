@@ -16,6 +16,8 @@ import { LoginService } from './services/login.service';
 import { SearchByNameComponent } from './search-by-name/search-by-name.component';
 import { CompositionComponent } from './composition/composition.component';
 import { AddCompComponent } from './add-comp/add-comp.component';
+import { MedicService } from './services/medic.service';
+import { ModifCompComponent } from './modif-comp/modif-comp.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { AddCompComponent } from './add-comp/add-comp.component';
     GestCompComponent,
     SearchByNameComponent,
     CompositionComponent,
-    AddCompComponent
+    AddCompComponent,
+    ModifCompComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { AddCompComponent } from './add-comp/add-comp.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [SharedService, LoginService],
+  providers: [SharedService, LoginService, MedicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
