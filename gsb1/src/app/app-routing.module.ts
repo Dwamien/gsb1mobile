@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GestCompComponent } from './gest-comp/gest-comp.component';
 import { AddCompComponent } from './add-comp/add-comp.component';
+import { ModifCompComponent } from './modif-comp/modif-comp.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'gest-comp',
     children:[
       { path: '', component: GestCompComponent},
-      { path: 'add-comp/:id', component: AddCompComponent}
+      { path: 'add-comp/:id', component: AddCompComponent},
+      { path: 'modif-comp/:id', component: ModifCompComponent }
     ]
   },
   { path: 'gest-comp/:id',
@@ -21,7 +23,7 @@ const routes: Routes = [
     { path: '', component: GestCompComponent},
     { path: 'add-comp/:id', component: AddCompComponent}
   ]
-}
+  }
 ];
 
 @NgModule({

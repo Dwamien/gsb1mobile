@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { SharedService } from './shared.service';
 import { Composition } from '../models/composition';
+import { Medic } from '../models/medic';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,10 @@ export class MedicService {
 
   addComp(composition: Composition): Observable<any> {
     return this.httpClient.post(this.URLAPI + 'Composition',JSON.stringify(composition), {headers: this.headers});
+  }
+
+  modifComp(id: number, medic: Medic): Observable<any> {
+    return this.httpClient.put(this.URLAPI + 'Composition/' + id, JSON.stringify(medic), {headers: this.headers});
   }
 
   deleteComp(id: number, id2: number): Observable<any> {

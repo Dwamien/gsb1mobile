@@ -17,7 +17,7 @@
           <td class="cache hidden-xs">{{medic.depot_legal}}</td>
           <td>{{composant.lib_composant}}</td>
           <td>{{composant.pivot['qte_composant']}}</td>
-          <td style="text-align: center;"><a class="glyphicon glyphicon-pencil" style="cursor: pointer" title="Modifier" href=""></a></td>
+          <td style="text-align: center;"><a class="glyphicon glyphicon-pencil" style="cursor: pointer" title="Modifier" routerLink="modif-comp/{{medic.id_medicament}}"></a></td>
           <td style="text-align: center;"><a class="glyphicon glyphicon-trash" style="cursor: pointer" title="Supprimer" (click)="delete(medic.id_medicament, composant.id_composant)"></a></td>
         </tr>
       </tbody>
