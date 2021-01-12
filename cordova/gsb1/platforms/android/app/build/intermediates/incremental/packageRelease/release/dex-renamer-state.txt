@@ -1,0 +1,4 @@
+#Thu Oct 29 14:42:58 CET 2020
+base.0=C\:\\Users\\admin\\Documents\\gsb\\mobile\\gsb1\\cordova\\gsb1\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex

@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,8 +49,15 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
-    {
+    public function render($request, Throwable $exception) {
+        $typeException = get_class($exception);
+        if (($typeException == "Symfony\Component\HttpKernel\Exception\NotFoundHttpException") || ($typeException == "Symfony\Component\Debug\Exception\FatalThrowableError")) {
+            return response()->json("Ressource inexistante !", 404);
+        }
         return parent::render($request, $exception);
+    }
+
+    protected function unauthenticated($request, AuthenticationException $exception) {
+        return response()->json('Accès non autorisé !', 401);
     }
 }
